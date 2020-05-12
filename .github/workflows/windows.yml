@@ -11,12 +11,16 @@ jobs:
     - uses: actions/checkout@v1
     - name: install conan
       run : choco install conan
+    - name: install submodules
+      run: git submodule update --init --recursive
     - name: build
       run: |
-        git submodule update --init --recursive
+        help
+        SET PATH=%PATH%;c:\Program Files\Conan\conan
+        echo %PATH%
+        help
         mkdir build
         cd build
-        SET PATH=%PATH%;c:\Program Files\Conan
         cmake .. -G "Visual Studio 16 2019" -A x64
         cmake --build .
     - uses: actions/upload-artifact@v1
