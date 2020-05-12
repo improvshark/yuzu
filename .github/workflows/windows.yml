@@ -15,10 +15,8 @@ jobs:
       run: git submodule update --init --recursive
     - name: build
       run: |
-        help
-        SET PATH=%PATH%;c:\Program Files\Conan\conan
-        echo %PATH%
-        help
+        $env:PATH += ';C:\Program Files\Conan\conan'
+        ($env:Path).Replace(';',"`n")
         mkdir build
         cd build
         cmake .. -G "Visual Studio 16 2019" -A x64
