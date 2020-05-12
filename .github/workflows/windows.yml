@@ -16,6 +16,7 @@ jobs:
         git submodule update --init --recursive
         mkdir build
         cd build
+        SET PATH=%PATH%;c:\Program Files\Conan
         cmake .. -G "Visual Studio 16 2019" -A x64
         cmake --build .
     - uses: actions/upload-artifact@v1
