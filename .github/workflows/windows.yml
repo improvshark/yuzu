@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: install conan
-      run : choco install conan
+      run : pip install conan
     - name: install submodules
       run: git submodule update --init --recursive
     - name: build
